@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %} page {% endblock %}
+
+{% block body %}
+    <h1>GuestBook</h1>
+
+    <div >
+        <div>
+            {% if names%}
+                <ul>
+                    {% for name in names %}
+                        <li>{{ name }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>no names</p>
+            {% endif %}
+        </div>
+        
+        <div >
+            <form method="post" action="/catch">
+                <input id="nameInput" name="nameInput" type="text" placeholder="name">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
